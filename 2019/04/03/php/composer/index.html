@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Supervisor托管Gitbook（基于nvm）">
-<meta name="keywords" content="Supervisor">
+  <meta name="description" content="php composer使用切换镜像方法一： 修改 composer 的全局配置文件（推荐方式）1234567# 切换到国内镜像composer config -g repo.packagist composer https://packagist.phpcomposer.com# 删除国内镜像，恢复到默认镜像composer config -g repo.packagist composer h">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Supervisor托管Gitbook（基于nvm）">
-<meta property="og:url" content="http://0x2-co.github.io/2019/03/18/supervisor-gitbook/index.html">
+<meta property="og:title" content="php composer使用">
+<meta property="og:url" content="http://0x2-co.github.io/2019/04/03/php/composer/index.html">
 <meta property="og:site_name" content="0X2.co">
-<meta property="og:description" content="Supervisor托管Gitbook（基于nvm）">
+<meta property="og:description" content="php composer使用切换镜像方法一： 修改 composer 的全局配置文件（推荐方式）1234567# 切换到国内镜像composer config -g repo.packagist composer https://packagist.phpcomposer.com# 删除国内镜像，恢复到默认镜像composer config -g repo.packagist composer h">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T09:44:27.441Z">
+<meta property="og:updated_time" content="2019-04-03T01:40:30.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Supervisor托管Gitbook（基于nvm）">
-<meta name="twitter:description" content="Supervisor托管Gitbook（基于nvm）">
+<meta name="twitter:title" content="php composer使用">
+<meta name="twitter:description" content="php composer使用切换镜像方法一： 修改 composer 的全局配置文件（推荐方式）1234567# 切换到国内镜像composer config -g repo.packagist composer https://packagist.phpcomposer.com# 删除国内镜像，恢复到默认镜像composer config -g repo.packagist composer h">
 
 
 
@@ -116,7 +116,7 @@
 
 
 
-  <link rel="canonical" href="http://0x2-co.github.io/2019/03/18/supervisor-gitbook/">
+  <link rel="canonical" href="http://0x2-co.github.io/2019/04/03/php/composer/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>Supervisor托管Gitbook（基于nvm） | 0X2.co</title>
+  <title>php composer使用 | 0X2.co</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://0x2-co.github.io/2019/03/18/supervisor-gitbook/">
+    <link itemprop="mainEntityOfPage" href="http://0x2-co.github.io/2019/04/03/php/composer/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chory">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Supervisor托管Gitbook（基于nvm）
+          <h1 class="post-title" itemprop="name headline">php composer使用
 
               
             
@@ -338,12 +338,34 @@
                 
               
 
-              <time title="创建时间：2019-03-18 17:44:27" itemprop="dateCreated datePublished" datetime="2019-03-18T17:44:27+08:00">2019-03-18</time>
+              <time title="创建时间：2019-04-03 09:29:42 / 修改时间：09:40:30" itemprop="dateCreated datePublished" datetime="2019-04-03T09:29:42+08:00">2019-04-03</time>
             
 
+            
+              
+
+              
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +395,11 @@
       
 
       
-        <h2 id="Supervisor托管Gitbook（基于nvm）"><a href="#Supervisor托管Gitbook（基于nvm）" class="headerlink" title="Supervisor托管Gitbook（基于nvm）"></a>Supervisor托管Gitbook（基于nvm）</h2>
+        <h2 id="php-composer使用"><a href="#php-composer使用" class="headerlink" title="php composer使用"></a>php composer使用</h2><h4 id="切换镜像"><a href="#切换镜像" class="headerlink" title="切换镜像"></a>切换镜像</h4><p><strong>方法一</strong>： 修改 composer 的全局配置文件（推荐方式）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 切换到国内镜像</span><br><span class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除国内镜像，恢复到默认镜像</span><br><span class="line">composer config -g repo.packagist composer https://packagist.org</span><br><span class="line">或</span><br><span class="line">composer config -g --unset repos.packagist</span><br></pre></td></tr></table></figure></p>
+<p><strong>方法二</strong>：修改当前项目的 composer.json 配置文件：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure></p>
+<p><strong>方法三</strong>：修改配置文件<br>文件位置：1. 当前项目<code>composer.json</code>;2.或全局文件 <code>~/.comspoer/comspoer.json</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"repositories"</span>: &#123;</span><br><span class="line">    <span class="string">"packagist"</span>: &#123;</span><br><span class="line">        <span class="string">"type"</span>: <span class="string">"composer"</span>,</span><br><span class="line">        <span class="string">"url"</span>: <span class="string">"https://packagist.phpcomposer.com"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="忽略php版本错误"><a href="#忽略php版本错误" class="headerlink" title="忽略php版本错误"></a>忽略php版本错误</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line">composer install --ignore-platform-reqs</span><br><span class="line"><span class="meta">#</span> 更新</span><br><span class="line">composer update --ignore-platform-reqs</span><br><span class="line"><span class="meta">#</span> 添加单个包</span><br><span class="line">composer require --ignore-platform-reqs --prefer-dist yiisoft/yii2-httpclient</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -396,7 +422,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Supervisor/" rel="tag"># Supervisor</a>
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
         </div>
       
@@ -409,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/15/ubuntu-php/" rel="next" title="Linux:Ubuntu安装 Nignx+PHP（支持多版本）">
-                <i class="fa fa-chevron-left"></i> Linux:Ubuntu安装 Nignx+PHP（支持多版本）
+              <a href="/2019/03/18/supervisor-gitbook/" rel="next" title="Supervisor托管Gitbook（基于nvm）">
+                <i class="fa fa-chevron-left"></i> Supervisor托管Gitbook（基于nvm）
               </a>
             
           </div>
@@ -418,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/03/php/composer/" rel="prev" title="php composer使用">
-                php composer使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor托管Gitbook（基于nvm）"><span class="nav-number">1.</span> <span class="nav-text">Supervisor托管Gitbook（基于nvm）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#php-composer使用"><span class="nav-number">1.</span> <span class="nav-text">php composer使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切换镜像"><span class="nav-number">1.0.1.</span> <span class="nav-text">切换镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#忽略php版本错误"><span class="nav-number">1.0.2.</span> <span class="nav-text">忽略php版本错误</span></a></li></ol></li></ol></div>
             
 
           </div>
