@@ -46,10 +46,10 @@
   
   <entry>
     <title>Centos7 docker报D-Bus错误</title>
-    <link href="http://0x2-co.github.io/article/docker-centos-dbus.html"/>
-    <id>http://0x2-co.github.io/article/docker-centos-dbus.html</id>
+    <link href="http://0x2-co.github.io/article/docker-dbus.html"/>
+    <id>http://0x2-co.github.io/article/docker-dbus.html</id>
     <published>2019-04-07T13:40:37.000Z</published>
-    <updated>2019-04-07T14:08:48.729Z</updated>
+    <updated>2019-06-02T06:10:42.839Z</updated>
     
     <content type="html"><![CDATA[<p>Centos7 docker报错[Failed to get D-Bus connection: Operation not permitted]</p><a id="more"></a><p>网上搜了很久，各种解决方法，大多都是启动执行 <code>/usr/sbin/init</code>，用以下命令试了下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行镜像</span></span><br><span class="line">docker run  -it --name squid -d --restart=always \</span><br><span class="line">--publish 3128:3128  centos /usr/sbin/init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">$ docker <span class="built_in">exec</span> -it squid bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装了个squid</span></span><br><span class="line">yum install squid -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># systemctl 启动squid</span></span><br><span class="line">% systemctl start squid</span><br><span class="line"></span><br><span class="line"><span class="comment"># 华丽丽的报错！！！</span></span><br><span class="line">% Failed to get D-Bus connection: Operation not permitted</span><br></pre></td></tr></table></figure><p>遗憾，估计网上<strong>大部分的帖子都在租来的</strong>，继续找。</p><p>最终看文档，找到了个授权参数，加了个参数重新试了下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker stop squid</span><br><span class="line">docker rm squid</span><br><span class="line">docker run  --privileged  -it -e <span class="string">"container=docker"</span> \</span><br><span class="line">--name squid -d --restart=always \</span><br><span class="line">--publish 3128:3128  centos /usr/sbin/init</span><br></pre></td></tr></table></figure><p>再次进入，成功了！！！</p>]]></content>
     
@@ -63,6 +63,8 @@
     
     
       <category term="Q&amp;A" scheme="http://0x2-co.github.io/tags/Q-A/"/>
+    
+      <category term="Docker" scheme="http://0x2-co.github.io/tags/Docker/"/>
     
   </entry>
   
