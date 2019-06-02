@@ -96,13 +96,17 @@
 
 
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="乔汉成的博客">
+<meta name="keywords" content="乔汉成的博客,乔汉成,qiaohancheng,Chory">
+<meta property="og:type" content="website">
 <meta property="og:title" content="0X2.co">
 <meta property="og:url" content="http://0x2-co.github.io/index.html">
 <meta property="og:site_name" content="0X2.co">
+<meta property="og:description" content="乔汉成的博客">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="0X2.co">
+<meta name="twitter:description" content="乔汉成的博客">
 
 
 
@@ -291,11 +295,341 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://0x2-co.github.io/article/f6524935.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chory">
+      <meta itemprop="description" content="乔汉成的博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="0X2.co">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/article/f6524935.html" class="post-title-link" itemprop="url">PHP类和类成员大小写敏感</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-02 13:21:00" itemprop="dateCreated datePublished" datetime="2019-06-02T13:21:00+08:00">2019-06-02</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="抛个BUG"><a href="#抛个BUG" class="headerlink" title="抛个BUG"></a>抛个BUG</h5><blockquote>
+<p>Yii2使用redis-&gt;lRange提示找不到lRange<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[0x2@localhost:~]$ php yii <span class="built_in">test</span>/<span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">Exception <span class="string">'yii\base\UnknownMethodException'</span> with message <span class="string">'Calling unknown method: yii\redis\Connection::lRange()'</span></span><br><span class="line"> <span class="keyword">in</span> /root/yii/vendor/yiisoft/yii2/base/Component.php:300</span><br><span class="line"></span><br><span class="line">Stack trace:</span><br><span class="line"><span class="comment">#0 /root/yii/vendor/yiisoft/yii2-redis/src/Connection.php(632): yii\base\Component-&gt;__call('lRange', Array)</span></span><br><span class="line"><span class="comment">#1 ...</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>配置:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置:</span></span><br><span class="line">$config[<span class="string">'components'</span>] = [</span><br><span class="line">    <span class="string">'redis'</span> =&gt; [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'yii\redis\Connection'</span>,</span><br><span class="line">        <span class="string">'hostname'</span> =&gt; <span class="string">'localhost'</span>,</span><br><span class="line">        <span class="string">'port'</span> =&gt; <span class="number">6379</span>,</span><br><span class="line">        <span class="string">'database'</span> =&gt; <span class="number">10</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>示例:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">console</span>\<span class="title">controllers</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestController</span> <span class="keyword">extends</span> \<span class="title">yii</span>\<span class="title">console</span>\<span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        \Yii::$app-&gt;redis-&gt;lRange(<span class="string">'redis_key'</span>, <span class="number">0</span>, <span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>将<code>lRange</code>改为<code>lrange</code>或<code>LRANGE</code>就OK了！<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">console</span>\<span class="title">controllers</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestController</span> <span class="keyword">extends</span> \<span class="title">yii</span>\<span class="title">console</span>\<span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        \Yii::$app-&gt;redis-&gt;lrange(<span class="string">'redis_key'</span>, <span class="number">0</span>, <span class="number">-1</span>); <span class="comment">// 👈这里</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="PHP类是否区分大小写？"><a href="#PHP类是否区分大小写？" class="headerlink" title="PHP类是否区分大小写？"></a>PHP类是否区分大小写？</h5><blockquote>
+<p><strong>php的class不区分大小写</strong>，用过世界上最伟大的语言的都知道。</p>
+</blockquote>
+<p>例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">helloWorld</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">__METHOD__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'1.helloWorld '</span>, $a-&gt;helloWorld(), PHP_EOL;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'2.helloworld '</span>, $a-&gt;helloworld(), PHP_EOL;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'3.HELLOWORLD '</span>, $a-&gt;HELLOWORLD(), PHP_EOL;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[0x2@localhost:~]$ php test.php</span><br><span class="line">1.helloWorld A::helloWorld</span><br><span class="line">2.helloworld A::helloWorld</span><br><span class="line">3.HELLOWORLD A::helloWorld</span><br></pre></td></tr></table></figure></p>
+<h5 id="为什么报错？"><a href="#为什么报错？" class="headerlink" title="为什么报错？"></a>为什么报错？</h5><p>查看源代码，引用的redis基类<code>yii\redis\Connection</code>，打开文件<code>vendor/yiisoft/yii2-redis/src/Connection.php</code>，如果遇到大小写则<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__call</span><span class="params">($name, $params)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $redisCommand = strtoupper(Inflector::camel2words($name, <span class="keyword">false</span>)); <span class="comment">// 不转换大小写</span></span><br><span class="line">    <span class="keyword">if</span> (in_array($redisCommand, <span class="keyword">$this</span>-&gt;redisCommands)) &#123; <span class="comment">// 驼峰式的写法不在 $this-&gt;redisCommands 内</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;executeCommand($redisCommand, $params);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">parent</span>::__call($name, $params);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h5><p>做了很多无用功，php对类成员大小写不敏感，是yii框架的<code>yii\redis\Connection</code>扩展不支持。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://0x2-co.github.io/article/56ace0f.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chory">
+      <meta itemprop="description" content="乔汉成的博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="0X2.co">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/article/56ace0f.html" class="post-title-link" itemprop="url">Khadas vim2 安装Linux Ubuntu</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-09 10:22:36" itemprop="dateCreated datePublished" datetime="2019-04-09T10:22:36+08:00">2019-04-09</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li>vim2官网 <a href="https://docs.khadas.com/" target="_blank" rel="noopener">https://docs.khadas.com/</a></li>
+<li>用官方的Burn Card Maker Tool和USB Upgrade Tool均无法烧录固件，参考此博客才知道其他很多烧录软件可以用，参考博客：<br><a href="https://www.veryarm.com/94151.html" target="_blank" rel="noopener">https://www.veryarm.com/94151.html</a></li>
+</ul>
+<h3 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h3><p>- </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://0x2-co.github.io/article/docker-centos-dbus.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chory">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="乔汉成的博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -462,7 +796,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chory">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="乔汉成的博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -520,7 +854,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-07 22:07:35" itemprop="dateModified" datetime="2019-04-07T22:07:35+08:00">2019-04-07</time>
+                <time title="修改时间：2019-04-22 10:24:44" itemprop="dateModified" datetime="2019-04-22T10:24:44+08:00">2019-04-22</time>
               
             
           </span>
@@ -627,7 +961,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chory">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="乔汉成的博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -813,7 +1147,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chory">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="乔汉成的博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -996,7 +1330,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chory">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="乔汉成的博客">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1188,7 +1522,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Chory</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <div class="site-description motion-element" itemprop="description">乔汉成的博客</div>
           </div>
 
           
@@ -1198,7 +1532,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1244,7 +1578,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
