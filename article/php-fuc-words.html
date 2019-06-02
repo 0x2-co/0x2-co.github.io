@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="0X2.co">
 <meta property="og:description" content="抛个BUG Yii2使用redis-&amp;gt;lRange提示找不到lRange12345678[0x2@localhost:~]$ php yii test/testException &apos;yii\base\UnknownMethodException&apos; with message &apos;Calling unknown method: yii\redis\Connection::lRange()&apos; in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-02T05:30:19.265Z">
+<meta property="og:updated_time" content="2019-06-02T07:21:11.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP类和类成员大小写敏感">
 <meta name="twitter:description" content="抛个BUG Yii2使用redis-&amp;gt;lRange提示找不到lRange12345678[0x2@localhost:~]$ php yii test/testException &apos;yii\base\UnknownMethodException&apos; with message &apos;Calling unknown method: yii\redis\Connection::lRange()&apos; in">
@@ -355,7 +355,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-02 13:30:19" itemprop="dateModified" datetime="2019-06-02T13:30:19+08:00">2019-06-02</time>
+                <time title="修改时间：2019-06-02 15:21:11" itemprop="dateModified" datetime="2019-06-02T15:21:11+08:00">2019-06-02</time>
               
             
           </span>
@@ -408,7 +408,7 @@
 
       
         <h5 id="抛个BUG"><a href="#抛个BUG" class="headerlink" title="抛个BUG"></a>抛个BUG</h5><blockquote>
-<p>Yii2使用redis-&gt;lRange提示找不到lRange<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[0x2@localhost:~]$ php yii <span class="built_in">test</span>/<span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">Exception <span class="string">'yii\base\UnknownMethodException'</span> with message <span class="string">'Calling unknown method: yii\redis\Connection::lRange()'</span></span><br><span class="line"> <span class="keyword">in</span> /root/yii/vendor/yiisoft/yii2/base/Component.php:300</span><br><span class="line"></span><br><span class="line">Stack trace:</span><br><span class="line"><span class="comment">#0 /root/yii/vendor/yiisoft/yii2-redis/src/Connection.php(632): yii\base\Component-&gt;__call('lRange', Array)</span></span><br><span class="line"><span class="comment">#1 ...</span></span><br></pre></td></tr></table></figure></p>
+<p><code>Yii2</code>使用<code>redis-&gt;lRange</code>提示找不到<code>lRange</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[0x2@localhost:~]$ php yii <span class="built_in">test</span>/<span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">Exception <span class="string">'yii\base\UnknownMethodException'</span> with message <span class="string">'Calling unknown method: yii\redis\Connection::lRange()'</span></span><br><span class="line"> <span class="keyword">in</span> /root/yii/vendor/yiisoft/yii2/base/Component.php:300</span><br><span class="line"></span><br><span class="line">Stack trace:</span><br><span class="line"><span class="comment">#0 /root/yii/vendor/yiisoft/yii2-redis/src/Connection.php(632): yii\base\Component-&gt;__call('lRange', Array)</span></span><br><span class="line"><span class="comment">#1 ...</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <a id="more"></a>
 <p>配置:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置:</span></span><br><span class="line">$config[<span class="string">'components'</span>] = [</span><br><span class="line">    <span class="string">'redis'</span> =&gt; [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'yii\redis\Connection'</span>,</span><br><span class="line">        <span class="string">'hostname'</span> =&gt; <span class="string">'localhost'</span>,</span><br><span class="line">        <span class="string">'port'</span> =&gt; <span class="number">6379</span>,</span><br><span class="line">        <span class="string">'database'</span> =&gt; <span class="number">10</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
